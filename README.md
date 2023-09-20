@@ -10,8 +10,14 @@ sysctl -w net.core.wmem_max=2500000
 
 https://docs.ipfs.tech/install/run-ipfs-inside-docker/#set-up
 ```
-docker run -d --name ipfs_host -v $ipfs_staging:/export -v $ipfs_data:/data/ipfs -p 4001:4001 -p 4001:4001/udp -p 127.0.0.1:8080:8080 -p 127.0.0.1:5001:5001 ipfs/kubo:latest
+docker run -d --name ipfs_host --hostname ipfs_host -v /srv/ipfs-staging:/export -v /srv/ipfs/data:/data/ipfs -p 4001:4001 -p 4001:4001/udp -p 8080:8080 -p 5001:5001 ipfs/kubo:latest
+
 ```
 
 
+https://github.com/ipfs/kubo/issues/3933
+```
+ docker exec ipfs_host ipfs swarm connect /ip4/10.5.112.133/tcp/4001/ipfs/12D3KooWJr8bMRK9TvC6UdcgvT98dEccL4u4tnuykyHsaU5J7Mez
+```
 
+https://stackoverflow.com/questions/60172974/ipfs-private-network-setup-not-works
