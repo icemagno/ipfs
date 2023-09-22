@@ -41,3 +41,5 @@ https://github.com/ipfs/kubo/issues/3933
 ```
 
 https://stackoverflow.com/questions/60172974/ipfs-private-network-setup-not-works
+
+https://docs.ipfs.tech/install/server-infrastructure/#create-a-local-cluster
