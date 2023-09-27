@@ -151,8 +151,9 @@ public class IPFSService {
 		try {
 			ipfs.refs.local();
 			
-			removePinService("mock");
-			// createPinService( "PinService-01" );
+			removePinService("PinService-01");
+			//createPinService( "PinService-01" );
+			//listPinned( "PinService-01" );
 			
 			//createDir();
 			//addFileToDir();

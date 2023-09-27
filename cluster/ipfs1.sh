@@ -5,7 +5,6 @@ docker run --name ipfs1 --hostname=ipfs1 --network=sisgeodef \
 -p 4001:4001 \
 -p 5001:5001 \
 -p 8081:8080 \
--p 3000:3000 \
 -e IPFS_LOGGING=debug \
 -v /srv/ipfs/ipfs1:/data/ipfs \
 -d ipfs/kubo:release
