@@ -3,6 +3,7 @@ package br.com.cmabreu;
 import java.io.File;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -20,6 +21,10 @@ public class IPFSService {
 	private IPFS ipfs;
 
 	private void addFile() throws Exception {
+		
+        // InputStream inputStream = new ByteArrayInputStream(file.getBytes());
+        // NamedStreamable.InputStreamWrapper is = new NamedStreamable.InputStreamWrapper(inputStream);		
+		
 		NamedStreamable.FileWrapper file = new NamedStreamable.FileWrapper(new File("/layers/config.json"));
 		MerkleNode response = this.ipfs.add(file).get(0);
 		Multihash hash = response.hash;
@@ -108,7 +113,36 @@ public class IPFSService {
             System.out.println(entry.get("Name"));
         }		
 	}
+
 	
+	private void createPinService( String serviceName ) throws Exception {
+        ipfs.pin.remote.addService(serviceName, "http://172.21.81.48:3000", "dbcdbdebed71d71621cef9e4a4bd9eb0b603564bbef90888e57e5fe7386ff8ca");
+        List<Map> services = ipfs.pin.remote.lsService(true);
+        for(Map service : services) {
+            System.out.println(service);
+        }			
+	}
+	
+	private void removePinService( String serviceName ) throws Exception {
+		ipfs.pin.remote.rmService(serviceName); 
+	}
+	
+	
+	private void pinFile( Multihash  hashCid, String serviceName ) throws Exception {
+        Map addHashResult = ipfs.pin.remote.add(serviceName, hashCid, Optional.empty(), true);
+        System.out.println(addHashResult);		
+	}
+	
+	private void listPinned( String serviceName ) throws Exception {
+        List<IPFS.PinStatus> statusList = List.of(IPFS.PinStatus.values()); // all statuses
+        Map ls = ipfs.pin.remote.ls(serviceName, Optional.empty(), Optional.of(statusList));
+        System.out.println(ls);		
+	}
+	
+	private void removePinned( Multihash  hashCid, String serviceName ) throws Exception {
+		List<IPFS.PinStatus> queued = List.of(IPFS.PinStatus.queued);
+		ipfs.pin.remote.rm(serviceName, Optional.empty(), Optional.of(queued), Optional.of(List.of(hashCid)));		
+	}
 	
 	@PostConstruct
 	private void init() {
@@ -117,11 +151,14 @@ public class IPFSService {
 		try {
 			ipfs.refs.local();
 			
-			createDir();
-			addFileToDir();
-			readFileContents();
-			listDir( "/" ); // "/my/directory/example"
-			checkFileStatus();
+			removePinService("mock");
+			// createPinService( "PinService-01" );
+			
+			//createDir();
+			//addFileToDir();
+			//readFileContents();
+			//listDir( "/" ); // "/my/directory/example"
+			//checkFileStatus();
 			
 			//this.getFile("QmPALQupxi1U6K6JAJwhjDtbtsWmHw1WYSs5w3BaXYES9u");
 			//this.getFile("QmWN5eWpgUjYrWNR5FP2QKJjJrCPig57bCp4WohGacqYdK");

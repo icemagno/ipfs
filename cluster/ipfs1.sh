@@ -5,7 +5,8 @@ docker run --name ipfs1 --hostname=ipfs1 --network=sisgeodef \
 -p 4001:4001 \
 -p 5001:5001 \
 -p 8081:8080 \
--e IPFS_LOGGING=verbose \
+-p 3000:3000 \
+-e IPFS_LOGGING=debug \
 -v /srv/ipfs/ipfs1:/data/ipfs \
 -d ipfs/kubo:release
 
@@ -30,3 +31,6 @@ docker run --name ipfs1 --hostname=ipfs1 --network=sisgeodef \
 # http://10.5.112.132:5001/webui
 
 # ipfs swarm addrs --local --group
+
+# ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["http://172.21.81.48:5001", "http://localhost:3000", "http://127.0.0.1:5001", "https://webui.ipfs.io"]'
+# ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'

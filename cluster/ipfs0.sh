@@ -5,7 +5,8 @@ docker run --name ipfs0 --hostname=ipfs0 --network=sisgeodef \
 -p 4001:4001 \
 -p 5001:5001 \
 -p 8081:8080 \
--e IPFS_LOGGING=verbose \
+-p 3000:3000 \
+-e IPFS_LOGGING=debug \
 -v /srv/ipfs/ipfs0:/data/ipfs \
 -d ipfs/kubo:release
 
@@ -22,3 +23,5 @@ docker run --name ipfs0 --hostname=ipfs0 --network=sisgeodef \
 
 # Depois precisa reiniciar o ipfs.
 # Sempre que reiniciar o IPFS, reiniciar o CLUSTER correspondente depois.
+
+# ipfs ping 12D3KooWMe4jQUEFidcnRmEWEeY9UnsyCPeg61ygPswjFcAvQkZ5
