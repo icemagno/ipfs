@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "b1a5ec86-9c6e-4ae9-8ef4-1377fec62912",
+		"name": "IPFS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Peers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://172.21.81.48:5001/api/v0/swarm/peers?verbose=true&timeout=10000ms",
+					"protocol": "http",
+					"host": [
+						"172",
+						"21",
+						"81",
+						"48"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v0",
+						"swarm",
+						"peers"
+					],
+					"query": [
+						{
+							"key": "verbose",
+							"value": "true"
+						},
+						{
+							"key": "timeout",
+							"value": "10000ms"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Repo Stat",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://172.21.81.48:5001/api/v0/repo/stat",
+					"protocol": "http",
+					"host": [
+						"172",
+						"21",
+						"81",
+						"48"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v0",
+						"repo",
+						"stat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bandwidth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://172.21.81.48:5001/api/v0/stats/bw",
+					"protocol": "http",
+					"host": [
+						"172",
+						"21",
+						"81",
+						"48"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v0",
+						"stats",
+						"bw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Config",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://172.21.81.48:5001/api/v0/config/show",
+					"protocol": "http",
+					"host": [
+						"172",
+						"21",
+						"81",
+						"48"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v0",
+						"config",
+						"show"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pin Local",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://172.21.81.48:5001/api/v0/pin/add?recursive=true&stream=true&arg=QmbmNnexhnB1c4dhGkftbEms6F4iePqKh6yn7YbXZgnGW4",
+					"protocol": "http",
+					"host": [
+						"172",
+						"21",
+						"81",
+						"48"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v0",
+						"pin",
+						"add"
+					],
+					"query": [
+						{
+							"key": "recursive",
+							"value": "true"
+						},
+						{
+							"key": "stream",
+							"value": "true"
+						},
+						{
+							"key": "arg",
+							"value": "QmbmNnexhnB1c4dhGkftbEms6F4iePqKh6yn7YbXZgnGW4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pin List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://172.21.81.48:5001/api/v0/pin/ls?type=recursive&stream=true",
+					"protocol": "http",
+					"host": [
+						"172",
+						"21",
+						"81",
+						"48"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v0",
+						"pin",
+						"ls"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "recursive"
+						},
+						{
+							"key": "stream",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pin List Direct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://172.21.81.48:5001/api/v0/pin/ls?type=direct&stream=true",
+					"protocol": "http",
+					"host": [
+						"172",
+						"21",
+						"81",
+						"48"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v0",
+						"pin",
+						"ls"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "direct"
+						},
+						{
+							"key": "stream",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pin Remove",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://172.21.81.48:5001/api/v0/pin/rm?recursive=true&arg=QmbmNnexhnB1c4dhGkftbEms6F4iePqKh6yn7YbXZgnGW4",
+					"protocol": "http",
+					"host": [
+						"172",
+						"21",
+						"81",
+						"48"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v0",
+						"pin",
+						"rm"
+					],
+					"query": [
+						{
+							"key": "recursive",
+							"value": "true"
+						},
+						{
+							"key": "arg",
+							"value": "QmbmNnexhnB1c4dhGkftbEms6F4iePqKh6yn7YbXZgnGW4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bootstrap List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://172.21.81.48:5001/api/v0/bootstrap",
+					"protocol": "http",
+					"host": [
+						"172",
+						"21",
+						"81",
+						"48"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v0",
+						"bootstrap"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Commands",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://172.21.81.48:5001/api/v0/commands",
+					"protocol": "http",
+					"host": [
+						"172",
+						"21",
+						"81",
+						"48"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v0",
+						"commands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://172.21.81.48:5001/api/v0/files/ls?long=true&arg=/QmZLYxjFKEA1kLWhLkmvJrEQFkbwVXjXgNhV7Arw9Ug7vb",
+					"protocol": "http",
+					"host": [
+						"172",
+						"21",
+						"81",
+						"48"
+					],
+					"port": "5001",
+					"path": [
+						"api",
+						"v0",
+						"files",
+						"ls"
+					],
+					"query": [
+						{
+							"key": "long",
+							"value": "true"
+						},
+						{
+							"key": "arg",
+							"value": "/QmZLYxjFKEA1kLWhLkmvJrEQFkbwVXjXgNhV7Arw9Ug7vb"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Gateway Get File (HTTP)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.21.81.48:8081/ipfs/QmP9LrV6cEmYeof8MyFD5oonpguAe4iUA7E8YKmhLdwJy1?filename=query-mare.txt&download=false&format=text/plain",
+					"protocol": "http",
+					"host": [
+						"172",
+						"21",
+						"81",
+						"48"
+					],
+					"port": "8081",
+					"path": [
+						"ipfs",
+						"QmP9LrV6cEmYeof8MyFD5oonpguAe4iUA7E8YKmhLdwJy1"
+					],
+					"query": [
+						{
+							"key": "filename",
+							"value": "query-mare.txt"
+						},
+						{
+							"key": "download",
+							"value": "false"
+						},
+						{
+							"key": "format",
+							"value": "text/plain"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

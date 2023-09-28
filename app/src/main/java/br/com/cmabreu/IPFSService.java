@@ -151,9 +151,9 @@ public class IPFSService {
 		try {
 			ipfs.refs.local();
 			
-			removePinService("PinService-01");
-			//createPinService( "PinService-01" );
-			//listPinned( "PinService-01" );
+			// removePinService("PinService-01");
+			// createPinService( "PinService-01" );
+			// listPinned( "PinService-01" );
 			
 			//createDir();
 			//addFileToDir();
@@ -161,7 +161,8 @@ public class IPFSService {
 			//listDir( "/" ); // "/my/directory/example"
 			//checkFileStatus();
 			
-			//this.getFile("QmPALQupxi1U6K6JAJwhjDtbtsWmHw1WYSs5w3BaXYES9u");
+			this.getFile("QmP9LrV6cEmYeof8MyFD5oonpguAe4iUA7E8YKmhLdwJy1");
+			// this.getFile("QmPALQupxi1U6K6JAJwhjDtbtsWmHw1WYSs5w3BaXYES9u");
 			//this.getFile("QmWN5eWpgUjYrWNR5FP2QKJjJrCPig57bCp4WohGacqYdK");
 			//this.getFile("QmbX6of2zo1BwwiQLcvy4PAXU1jtFBS3XzUqeSy4T4xgtg");
 			//this.getFile("Qmb8JbffTZuh899wzZeSKZk1n6fZcrJ1rfLGHVa3tbiPHt");
