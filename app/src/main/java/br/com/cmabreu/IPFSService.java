@@ -131,7 +131,7 @@ public class IPFSService {
 	
 	@PostConstruct
 	private void init() {
-		this.ipfs = new IPFS("/ip4/172.21.81.48/tcp/5001");
+		this.ipfs = new IPFS("/ip4/172.21.81.49/tcp/5001");
 		
 		try {
 			ipfs.refs.local();
@@ -146,7 +146,7 @@ public class IPFSService {
 			//listDir( "/" ); // "/my/directory/example"
 			//checkFileStatus();
 			
-			this.getFile("QmP9LrV6cEmYeof8MyFD5oonpguAe4iUA7E8YKmhLdwJy1");
+			this.getFile("QmbX6of2zo1BwwiQLcvy4PAXU1jtFBS3XzUqeSy4T4xgtg");
 			
 			ipfs.repo.gc();
 			
