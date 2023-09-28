@@ -11,6 +11,7 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import io.ipfs.api.IPFS;
+import io.ipfs.api.IPFS.PinType;
 import io.ipfs.api.MerkleNode;
 import io.ipfs.api.NamedStreamable;
 import io.ipfs.multihash.Multihash;
@@ -114,34 +115,18 @@ public class IPFSService {
         }		
 	}
 
-	
-	private void createPinService( String serviceName ) throws Exception {
-        ipfs.pin.remote.addService(serviceName, "http://172.21.81.48:3000", "dbcdbdebed71d71621cef9e4a4bd9eb0b603564bbef90888e57e5fe7386ff8ca");
-        List<Map> services = ipfs.pin.remote.lsService(true);
-        for(Map service : services) {
-            System.out.println(service);
-        }			
-	}
-	
-	private void removePinService( String serviceName ) throws Exception {
-		ipfs.pin.remote.rmService(serviceName); 
-	}
-	
-	
 	private void pinFile( Multihash  hashCid, String serviceName ) throws Exception {
-        Map addHashResult = ipfs.pin.remote.add(serviceName, hashCid, Optional.empty(), true);
+        List<Multihash> addHashResult = ipfs.pin.add(hashCid);
         System.out.println(addHashResult);		
 	}
 	
 	private void listPinned( String serviceName ) throws Exception {
-        List<IPFS.PinStatus> statusList = List.of(IPFS.PinStatus.values()); // all statuses
-        Map ls = ipfs.pin.remote.ls(serviceName, Optional.empty(), Optional.of(statusList));
+        Map<Multihash, Object> ls = ipfs.pin.ls( PinType.all );
         System.out.println(ls);		
 	}
 	
 	private void removePinned( Multihash  hashCid, String serviceName ) throws Exception {
-		List<IPFS.PinStatus> queued = List.of(IPFS.PinStatus.queued);
-		ipfs.pin.remote.rm(serviceName, Optional.empty(), Optional.of(queued), Optional.of(List.of(hashCid)));		
+		List<Multihash> res = ipfs.pin.rm( hashCid, true );		
 	}
 	
 	@PostConstruct
@@ -150,7 +135,7 @@ public class IPFSService {
 		
 		try {
 			ipfs.refs.local();
-			
+
 			// removePinService("PinService-01");
 			// createPinService( "PinService-01" );
 			// listPinned( "PinService-01" );
@@ -162,6 +147,9 @@ public class IPFSService {
 			//checkFileStatus();
 			
 			this.getFile("QmP9LrV6cEmYeof8MyFD5oonpguAe4iUA7E8YKmhLdwJy1");
+			
+			ipfs.repo.gc();
+			
 			// this.getFile("QmPALQupxi1U6K6JAJwhjDtbtsWmHw1WYSs5w3BaXYES9u");
 			//this.getFile("QmWN5eWpgUjYrWNR5FP2QKJjJrCPig57bCp4WohGacqYdK");
 			//this.getFile("QmbX6of2zo1BwwiQLcvy4PAXU1jtFBS3XzUqeSy4T4xgtg");
