@@ -28,3 +28,5 @@ docker run --name ipfs0 --hostname=ipfs0 --network=sisgeodef \
 
 # Gateway
 # http://172.21.81.49:8081/ipfs/QmP9LrV6cEmYeof8MyFD5oonpguAe4iUA7E8YKmhLdwJy1?filename=query-mares.txt
+
+ipfs repo gc
