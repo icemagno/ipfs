@@ -1,13 +1,13 @@
-package br.com.cmabreu;
+package br.com.cmabreu.service;
 
 import java.io.File;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
 import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import io.ipfs.api.IPFS;
@@ -20,7 +20,7 @@ import io.ipfs.multihash.Multihash;
 public class IPFSService {
 	// https://github.com/ipfs-shipyard/java-ipfs-http-client/blob/master/src/main/java/io/ipfs/api/demo/UsageMFSFilesAPI.java
 	private IPFS ipfs;
-
+	
 	private void addFile() throws Exception {
 		
         // InputStream inputStream = new ByteArrayInputStream(file.getBytes());
@@ -129,13 +129,14 @@ public class IPFSService {
 		List<Multihash> res = ipfs.pin.rm( hashCid, true );		
 	}
 	
+	
 	@PostConstruct
 	private void init() {
-		this.ipfs = new IPFS("/ip4/172.21.81.49/tcp/5001");
+		//this.ipfs = new IPFS("/ip4/172.21.81.49/tcp/5001");
 		
 		try {
-			ipfs.refs.local();
-
+			//ipfs.refs.local();
+			
 			// removePinService("PinService-01");
 			// createPinService( "PinService-01" );
 			// listPinned( "PinService-01" );
@@ -146,9 +147,9 @@ public class IPFSService {
 			//listDir( "/" ); // "/my/directory/example"
 			//checkFileStatus();
 			
-			this.getFile("QmbX6of2zo1BwwiQLcvy4PAXU1jtFBS3XzUqeSy4T4xgtg");
+			//this.getFile("QmbX6of2zo1BwwiQLcvy4PAXU1jtFBS3XzUqeSy4T4xgtg");
 			
-			ipfs.repo.gc();
+			//ipfs.repo.gc();
 			
 			// this.getFile("QmPALQupxi1U6K6JAJwhjDtbtsWmHw1WYSs5w3BaXYES9u");
 			//this.getFile("QmWN5eWpgUjYrWNR5FP2QKJjJrCPig57bCp4WohGacqYdK");

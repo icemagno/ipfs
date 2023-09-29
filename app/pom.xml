@@ -48,8 +48,6 @@
 		    <artifactId>geohash</artifactId>
 		    <version>1.4.0</version>
 		</dependency>
-
-
 		<dependency>
 		    <groupId>com.github.ipfs-shipyard</groupId>
 		    <artifactId>java-ipfs-http-client</artifactId>
@@ -75,7 +73,29 @@
       		<artifactId>java-cid</artifactId>
       		<version>v1.3.8</version>
     	</dependency>
+
 		
+		<dependency>
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcprov-jdk15on</artifactId>
+		    <version>1.54</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcpkix-jdk15on</artifactId>
+		    <version>1.54</version>
+		</dependency>	
+		<dependency>
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcmail-jdk15on</artifactId>
+		    <version>1.54</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.bouncycastle</groupId>
+		    <artifactId>bcpg-jdk15on</artifactId>
+		    <version>1.54</version>
+		</dependency>
+			
 			
 	</dependencies>
 
