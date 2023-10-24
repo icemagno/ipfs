@@ -129,10 +129,8 @@ public class IPFSService {
 		List<Multihash> res = ipfs.pin.rm( hashCid, true );		
 	}
 	
-	
-	@PostConstruct
-	private void init() {
-		//this.ipfs = new IPFS("/ip4/172.21.81.49/tcp/5001");
+	public void init( String address ) {
+		this.ipfs = new IPFS( address ); 
 		
 		try {
 			//ipfs.refs.local();
